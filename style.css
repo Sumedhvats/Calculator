@@ -8,7 +8,7 @@
     display: flex;
     flex-wrap: wrap;
     width: 820px;
-    height:210px;
+    height:175px;
     margin: auto;
     border: 1px solid #ccc;
     justify-content: end;
@@ -17,7 +17,7 @@
     display: flex;
     flex-wrap: wrap;
     width: 820px;
-    height:820px;
+    height:700px;
     margin: auto;
     border: 1px solid #ccc;
     
@@ -32,7 +32,7 @@
     margin: 10px;
     box-sizing: border-box;
     width: calc((820px / 4) - 20px); /* Adjusted for margin */
-    height: calc((820px / 4) - 20px); /* Adjusted for margin */
+    height: calc((700px / 4) - 20px); /* Adjusted for margin */
     font-size: 25px;
 }
 
@@ -46,7 +46,14 @@
     margin: 10px;
     box-sizing: border-box;
     width: calc((820px / 4) - 20px); /* Adjusted for margin */
-    height: 185px;
+    height: 155px;
     font-size: 25px;
     
+}
+.display{
+    height:250px;
+    width: 822.67px;
+    border:2px solid black;
+    box-sizing: border-box;
+
 }
