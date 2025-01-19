@@ -1,17 +1,28 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
 .content {
     background-color: #115392;
-    width: 820px;
-    border-radius: 25px; 
-    height: 110 0px;
-    padding: 20px; 
+    width: 100%;
+    max-width: 450px;
+    height: auto;
+    border-radius: 25px;
+    padding: 20px;
     box-sizing: border-box;
+    margin: 0 auto; 
 }
 
 .buttons {
     display: flex;
     flex-wrap: wrap;
     width: 100%;
-    margin: auto;
 }
 
 .num, .op {
@@ -21,46 +32,43 @@
     align-items: center;
     border-radius: 10%;
     text-align: center;
-    margin: 10px;
-    box-sizing: border-box;
-    width: calc(25% - 20px);
-    height: calc(780px / 5 - 20px);
-    font-size: 35px;
+    margin: 5px;
+    width: calc(25% - 10px);
+    height: 80px;
+    font-size: 24px;
     background-color: #a9a7e1;
     color: white;
-    border: none; 
-    outline: none; 
-    box-shadow: none;
-    transition: all 0.2s ease-in-out; 
+    border: none;
+    outline: none;
+    transition: all 0.2s ease-in-out;
 }
 
 .num:hover, .op:hover {
     background-color: #8f86d1;
     cursor: pointer;
     transform: scale(1.05);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .buttons #equal {
-    background-color: #ea7065; 
+    background-color: #ea7065;
     color: white;
     font-weight: bold;
-    width: calc(50% - 20px); /* Adjusted width for the equal button */
-    border-radius: 50px;
+    width: calc(50% - 10px);
+    border-radius: 15px;
 }
 
 .buttons #equal:hover {
     background-color: #e55446;
-    transform: scale(1.05); 
+    transform: scale(1.05);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: all 0.2s ease-in-out; 
 }
 
 .display {
-    height: calc(260px - 20px);
+    height: 100px;
     width: 100%;
     box-sizing: border-box;
-    font-size: 100px;
+    font-size: 48px;
     display: flex;
     flex-direction: column;
     font-family: monospace;
@@ -78,31 +86,31 @@
     flex-direction: column;
     background-color: #85FFBD;
     background-image: linear-gradient(45deg, #85FFBD 0%, #FFFB7D 100%);
-    height: 100vh;
-    border: none;
-    padding: 0;
+    min-height: 100vh;
+    padding: 20px;
 }
 
 @media (max-width: 768px) {
     .content {
-        width: 100%;
-        height: auto;
-    }
-
-    .display {
-        font-size: 60px;
+        width: 90%;
+        max-width: 400px;
     }
 
     .buttons #equal {
-        width: calc(100% - 40px); /* Equal button width adjustment on smaller screens */
+        width: calc(100% - 10px);
     }
 
     .num, .op {
         font-size: 20px;
-        width: calc(50% - 20px); /* Adjusting button width for small screens */
+        height: 60px;
+    }
+
+    .display {
+        font-size: 36px;
+        height: 80px; 
     }
 }
 
-.outerDisplay{
-    padding: 20px;
+.outerDisplay {
+    padding: 10px;
 }
