@@ -5,11 +5,10 @@ let currInput = "";
 let previous = "";
 let operator = "";
 
-const MAX_DISPLAY_LENGTH = 12; 
+const MAX_DISPLAY_LENGTH = 12;
 const MAX_DECIMALS = 8;
 
 function display(value) {
-
     if (value.length > MAX_DISPLAY_LENGTH) {
         value = value.slice(0, MAX_DISPLAY_LENGTH);
     }
@@ -43,13 +42,8 @@ function calculate() {
             break;
     }
 
-    if (Number.isInteger(result)) {
-        return result.toString();
-    } else {
-        return result.toFixed(8);
-    }
+    return result;
 }
-
 
 numbers.forEach((element) => {
     element.addEventListener("click", () => {
@@ -64,9 +58,15 @@ operators.forEach((element) => {
         if (operation === "equal") {
             if (previous && operator && currInput) {
                 let result = calculate();
-                result = result.toFixed(MAX_DECIMALS);
+
+                if (Number.isInteger(result)) {
+                    result = result.toString();
+                } else {
+                    result = result.toFixed(MAX_DECIMALS);
+                }
+
                 display(result);
-                previous = result.toString();
+                previous = result;
                 currInput = "";
                 operator = "";
             }
@@ -74,7 +74,7 @@ operators.forEach((element) => {
             previous = "";
             currInput = "";
             operator = "";
-            display("");
+            display("0");
         } else if (operation === "back_space") {
             if (currInput) {
                 currInput = currInput.slice(0, -1);
