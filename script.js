@@ -20,24 +20,36 @@ function calculate() {
     const num1 = parseFloat(previous);
     const num2 = parseFloat(currInput);
 
+    let result;
+
     switch (operator) {
         case "+":
-            return num1 + num2;
+            result = num1 + num2;
+            break;
         case "-":
-            return num1 - num2;
+            result = num1 - num2;
+            break;
         case "x":
-            return num1 * num2;
+            result = num1 * num2;
+            break;
         case "/":
-            return num1 / num2;
+            result = num1 / num2;
+            break;
         case "%":
-            if(!currInput){
-                return num1/100
-            }
-            return (num1/num2)*100
+            result = num1 % num2;
+            break;
         default:
-            return num2;
+            result = num2;
+            break;
+    }
+
+    if (Number.isInteger(result)) {
+        return result.toString();
+    } else {
+        return result.toFixed(8);
     }
 }
+
 
 numbers.forEach((element) => {
     element.addEventListener("click", () => {
