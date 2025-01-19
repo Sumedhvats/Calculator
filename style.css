@@ -2,15 +2,15 @@
     background-color: #115392;
     width: 820px;
     border-radius: 25px; 
-    height: 1050px;
+    height: 110 0px;
     padding: 20px; 
+    box-sizing: border-box;
 }
-
 
 .buttons {
     display: flex;
     flex-wrap: wrap;
-    width: 820px;
+    width: 100%;
     margin: auto;
 }
 
@@ -23,9 +23,9 @@
     text-align: center;
     margin: 10px;
     box-sizing: border-box;
-    width: calc((820px / 4) - 20px);
-    height: calc((780px / 5) - 20px);
-    font-size: 25px;
+    width: calc(25% - 20px);
+    height: calc(780px / 5 - 20px);
+    font-size: 35px;
     background-color: #a9a7e1;
     color: white;
     border: none; 
@@ -45,7 +45,7 @@
     background-color: #ea7065; 
     color: white;
     font-weight: bold;
-    width:380px;
+    width: calc(50% - 20px); /* Adjusted width for the equal button */
     border-radius: 50px;
 }
 
@@ -57,9 +57,8 @@
 }
 
 .display {
-    height: 260px;
-    width: 820px;
-    border: 20px solid #115392;
+    height: calc(260px - 20px);
+    width: 100%;
     box-sizing: border-box;
     font-size: 100px;
     display: flex;
@@ -67,6 +66,9 @@
     font-family: monospace;
     background-color: #1f5e97;
     color: wheat;
+    padding: 10px;
+    border-radius: 15px;
+    text-align: right;
 }
 
 .align {
@@ -75,14 +77,32 @@
     align-items: center;
     flex-direction: column;
     background-color: #85FFBD;
-background-image: linear-gradient(45deg, #85FFBD 0%, #FFFB7D 100%);
-height: 100vh;
-border: none;
-padding: none;
+    background-image: linear-gradient(45deg, #85FFBD 0%, #FFFB7D 100%);
+    height: 100vh;
+    border: none;
+    padding: 0;
 }
 
 @media (max-width: 768px) {
+    .content {
+        width: 100%;
+        height: auto;
+    }
+
     .display {
         font-size: 60px;
     }
+
+    .buttons #equal {
+        width: calc(100% - 40px); /* Equal button width adjustment on smaller screens */
+    }
+
+    .num, .op {
+        font-size: 20px;
+        width: calc(50% - 20px); /* Adjusting button width for small screens */
+    }
+}
+
+.outerDisplay{
+    padding: 20px;
 }

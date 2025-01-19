@@ -5,7 +5,14 @@ let currInput = "";
 let previous = "";
 let operator = "";
 
+const MAX_DISPLAY_LENGTH = 12; 
+const MAX_DECIMALS = 8;
+
 function display(value) {
+
+    if (value.length > MAX_DISPLAY_LENGTH) {
+        value = value.slice(0, MAX_DISPLAY_LENGTH);
+    }
     disp.textContent = value || "0";
 }
 
@@ -41,7 +48,8 @@ operators.forEach((element) => {
         const operation = element.title;
         if (operation === "equal") {
             if (previous && operator && currInput) {
-                const result = calculate();
+                let result = calculate();
+                result = result.toFixed(MAX_DECIMALS);
                 display(result);
                 previous = result.toString();
                 currInput = "";
@@ -51,7 +59,7 @@ operators.forEach((element) => {
             previous = "";
             currInput = "";
             operator = "";
-            display();
+            display("");
         } else if (operation === "back_space") {
             if (currInput) {
                 currInput = currInput.slice(0, -1);
@@ -62,17 +70,20 @@ operators.forEach((element) => {
             }
             display(`${previous} ${operator} ${currInput}`.trim());
         } else {
-
             if (currInput) {
                 if (previous && operator) {
-                    const result = calculate();
+                    let result = calculate();
+                    result = result.toFixed(MAX_DECIMALS);
                     previous = result.toString();
                 } else {
                     previous = currInput;
                 }
                 currInput = "";
                 operator = element.textContent;
-                display(`${previous} `);
+                display(`${previous} ${operator}`);
+            } else if (previous) {
+                operator = element.textContent;
+                display(`${previous} ${operator}`);
             }
         }
     });
